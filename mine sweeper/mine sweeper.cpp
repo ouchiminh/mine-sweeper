@@ -148,6 +148,7 @@ namespace mnsw{
 			set(width, height, bomb);
 		}
 		map() : open_cnt_{ 0 } {}
+
 		void set(size_t width, size_t height, size_t bomb){
 			const std::pair<size_t, size_t> size(std::min(9ull, width), std::min(9ull, height));
 			width_ = size.first;
@@ -167,7 +168,7 @@ namespace mnsw{
 		/// <returns>@true : still alive; @false : game over</returns>
 		size_t open(size_t x, size_t y) {
 			if(open_cnt_ == 0)init({ x, y });
-			if (map_.at(coord_to_idx({ x,y })).is_opened()) return width_ * height_ - open_cnt_;
+			if (map_.at(coord_to_idx({ x,y })).is_opened()) return width_ * height_ - open_cnt_ - bomb_;
 			open_cnt_++;
 			try {
 				if (!map_.at(coord_to_idx({ x, y })).open()) {
@@ -178,7 +179,7 @@ namespace mnsw{
 					}
 				}
 			} catch (bomb_exception&) { return 0; }
-			return width_ * height_ - open_cnt_;
+			return width_ * height_ - open_cnt_ - bomb_;
 		}
 		void flag(size_t x, size_t y) {
 			map_.at(coord_to_idx({ x, y })).flag();
