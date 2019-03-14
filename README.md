@@ -19,13 +19,13 @@
 ## About this software
 
 This is an implementation of mine sweeper, traditional video game. 
-This is free and unencumbered software released into the public domain. For more information, please refer [LICENSE](./LICENSE)
+This is free and unencumbered software released into the public domain. For more information, please refer to [LICENSE](./LICENSE)
 
 ## How to play
 
 1. First, choose size of map and amount of bomb. Then type `s j-9 15` if you want map of a-i and 0-8 and 15 bombs.
 2. Now, you can play mine sweeper as usual. Open cells with `o <coord[a-i]>-<coord[0-9]>` command, and set a flag with `f <coord[a-i]>-<coord[0-9]>` command.
-3. If you opened all the cell except bombs, program will end.
+3. If you open all the cell except bombs, program will end.
 
 ### Play example
 
